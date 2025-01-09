@@ -50,6 +50,21 @@ public class Waitlist {
     // Where n is studentIds.length
 
     // Don't forget to write tests too!
+
+    // loop through student ids - TODO: stop when there is a null
+
+    // check if element at index 1, check if set.contains
+
+    for (int i = 0; i < studentIds.length; i++) {
+      if (toRemove.contains(studentIds[i]));
+    }
+    
+      
+
+        
+
+      
+
   }
 
   /**
