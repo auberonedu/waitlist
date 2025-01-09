@@ -56,7 +56,6 @@ public class Waitlist {
     // Where n is studentIds.length
 
     // Don't forget to write tests too!
-  }
 
   private void removeStudent(String idToRemove){
     boolean found = false;
