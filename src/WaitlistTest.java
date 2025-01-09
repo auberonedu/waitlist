@@ -10,5 +10,9 @@ public class WaitlistTest {
   // Hints:
   // - removeStudents is an instance method, so your arrange will need to create an instance of Waitlist
   // - When comparing arrays you should use Arrays.equals instead of the equals instance method or ==
-  //     java.util.Arrays is imported for you at the top of this file. 
+  //     java.util.Arrays is imported for you at the top of this file.
+  
+  
+  
+
 }
