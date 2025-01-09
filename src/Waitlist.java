@@ -34,6 +34,21 @@ public class Waitlist {
    * @param toRemove studentIds of the students to remove
    */
   public void removeStudents(Set<String> toRemove) {
+    int writeIndex = 0;
+
+    for (int i = 0; i < studentIds.length; i++) {
+      if (studentIds[i] != null && !toRemove.contains(studentIds[i])) {
+        studentIds[writeIndex] = studentIds[i];
+        writeIndex++;
+      }
+    }
+
+    //fill rest of array with nulls
+    for (int i = writeIndex; i < studentIds.length; i++) {
+      studentIds[i] = null;
+  }
+
+
     // TODO: Implement this!
     // The remaining students should be slid down to the front of the array, not
     // leaving any gaps. All the nulls should be at the end.
