@@ -45,7 +45,12 @@ public class Waitlist {
 
     // Pseudocode:
     // Iterate over studentIds - For loop
-    // If the studentId is in toRemove, remove it - If statement
+      for (int i = studentIds.length; i > 0; i--) {
+        // If the studentId is in toRemove, remove it - If statement
+          if () {
+
+          }
+      }
     // Slide the remaining students down to the front of the array
     // Fill the remaining slots with null
     
