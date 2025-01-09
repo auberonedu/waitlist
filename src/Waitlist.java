@@ -42,7 +42,9 @@ public class Waitlist {
     // toRemove: {"r", "m"}
     //
     // expected studentIds after running: ["x", "q", "v", null, null, null, null] 
-
+      for(int i=0; i<toRemove.size(); i++){
+        
+      }
 
     // Required complexity:
     // Time: O(n)
