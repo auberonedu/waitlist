@@ -55,8 +55,16 @@ public class Waitlist {
 
     // check if element at index 1, check if set.contains
 
-    for (int i = 0; i < studentIds.length; i++) {
-      if (toRemove.contains(studentIds[i]));
+    for (int i = studentIds.length - 1; i >= 0; i--) {
+      if (toRemove.contains(studentIds[i])) {
+        if (i == studentIds.length - 1) {
+          studentIds[i] = null;
+        } else {
+          studentIds[i] = studentIds[i+1];
+          // nulls need to be "Added" at the end!
+          studentIds[i+1] = null;
+        }
+      }
     }
     
       
