@@ -54,6 +54,19 @@ public class Waitlist {
     // Don't forget to write tests too!
   }
 
+  private void removeStudent(String idToRemove){
+    boolean found = false;
+    for (int i = 0; i < studentIds.length -1; i++){
+      if (found == false){
+        if (studentIds[i] == idToRemove){
+          found = true;
+        }
+      } else {
+        studentIds[i-1] = studentIds[i];
+      }
+    }
+    studentIds[studentIds.length-1] = null;
+  }
   /**
    * Returns a copy of the waitlist.
    * 
