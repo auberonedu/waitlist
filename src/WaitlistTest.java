@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 
 public class WaitlistTest {
+  String[] students = {"k", "h", "b", "r", "l"};
+  Waitlist test = new Waitlist(students, 6);
   
   // TODO: Implement tests for removeStudents
 
