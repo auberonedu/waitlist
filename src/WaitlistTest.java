@@ -19,7 +19,7 @@ public class WaitlistTest {
 
     String[] expectedArray = {"x", "q", "v", null, null, null, null};
 
-    assertEquals(expectedArray, testWaitlist);
+    assertTrue(Arrays.equals(expectedArray, testWaitlist.getWaitlist()));
   } 
 
   // Hints:
