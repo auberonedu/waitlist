@@ -34,4 +34,15 @@ public class WaitlistTest {
     test.removeStudents(set);
     assertArrayEquals(expectedStudents, test.getWaitlist());
   }
+
+  @Test 
+  void removeLastStudent(){
+    Waitlist test = new Waitlist(students, 6);
+    String[] expectedStudents = {"k", "h", "b", "r", null, null};
+    Set<String> set = new HashSet<>();
+    set.add("l");
+
+    test.removeStudents(set);
+    assertArrayEquals(expectedStudents, test.getWaitlist());
+  }
 }
