@@ -41,7 +41,14 @@ public class Waitlist {
     // studentIds: ["x", "r", "q", "m", "v", null, null]
     // toRemove: {"r", "m"}
     //
-    // expected studentIds after running: ["x", "q", "v", null, null, null, null] 
+    // expected studentIds after running: ["x", "q", "v", null, null, null, null]
+
+    // Pseudocode:
+    // Iterate over studentIds - For loop
+    // If the studentId is in toRemove, remove it - If statement
+    // Slide the remaining students down to the front of the array
+    // Fill the remaining slots with null
+    
 
 
     // Required complexity:
