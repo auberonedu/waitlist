@@ -6,12 +6,20 @@ import java.util.Set;
 
 
 public class WaitlistTest {
+
+  String[] studentIds = {"x", "r", "q", "m", "v"};
+  int capacity = 7;
   
   // TODO: Implement tests for removeStudents
   @Test
   void removeStudentsBasic() {
     Set<String> removeSet = new HashSet<>(Set.of("r", "m"));
-    Waitlist waitlist = new Waitlist;
+    Waitlist testWaitlist = new Waitlist(studentIds, capacity);
+    testWaitlist.removeStudents(removeSet);
+
+    String[] expectedArray = {"x", "q", "v", null, null, null, null};
+
+    assertEquals(expectedArray, testWaitlist);
   } 
 
   // Hints:
