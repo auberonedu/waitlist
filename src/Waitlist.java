@@ -34,7 +34,7 @@ public class Waitlist {
    * @param toRemove studentIds of the students to remove
    */
   public void removeStudents(Set<String> toRemove) {
-    // TODO: Implement this!
+    // DONE: Implement this!
     // The remaining students should be slid down to the front of the array, not
     // leaving any gaps. All the nulls should be at the end.
     // Example:
