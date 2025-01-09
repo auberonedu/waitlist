@@ -8,7 +8,7 @@ public class WaitlistTest {
   String[] students = {"k", "h", "b", "r", "l"};
   Waitlist test = new Waitlist(students, 6);
 
-  
+
   // Hints:
   // - removeStudents is an instance method, so your arrange will need to create an instance of Waitlist
   // - When comparing arrays you should use Arrays.equals instead of the equals instance method or ==
@@ -19,6 +19,18 @@ public class WaitlistTest {
     String[] expectedStudents = {"k", "h", "r", "l", null, null};
     Set<String> set = new HashSet<>();
     set.add("b");
+    test.removeStudents(set);
+    assertArrayEquals(expectedStudents, test.getWaitlist());
+  }
+
+  @Test 
+  void removeTwoStudents(){
+    Waitlist test = new Waitlist(students, 6);
+    String[] expectedStudents = {"h", "r", "l", null, null, null};
+    Set<String> set = new HashSet<>();
+    set.add("b");
+    set.add("k");
+
     test.removeStudents(set);
     assertArrayEquals(expectedStudents, test.getWaitlist());
   }
