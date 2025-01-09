@@ -9,21 +9,24 @@ public class WaitlistTest {
   
   // DONE: Implement tests for removeStudents
   @Test
-  void testRemoveStudents() {
+  void testRemoveSpecificStudents() {
     // Test 1: Removing the specific students
     Waitlist waitlist = new Waitlist(new String[]{"x", "r", "q", "m", "v", null, null}, 7);
     waitlist.removeStudents(new HashSet<>(Set.of("r", "m")));
     assertArrayEquals(new String[]{"x", "q", "v", null, null, null, null}, waitlist.getWaitlist());
 
-    // Test 2: Not removing any students 
-    waitlist = new Waitlist(new String[]{"a", "b", "c", "d", "e", null, null}, 7);
-    waitlist.removeStudents(new HashSet<>());
-    assertArrayEquals(new String[]{"a", "b", "c", "d", "e", null, null}, waitlist.getWaitlist());
-
     // Test 3: Removing all the students
     waitlist = new Waitlist(new String[]{"z", "b", "a", "w", "q", null, null}, 7);
     waitlist.removeStudents(new HashSet<>(Set.of("z", "b", "a", "w", "q")));
     assertArrayEquals(new String[]{null, null, null, null, null, null, null}, waitlist.getWaitlist());
+  }
+
+  @Test
+  void testNotRemovingAnyStudents() {
+    // Test 2: Not removing any students 
+    Waitlist waitlist = new Waitlist(new String[]{"a", "b", "c", "d", "e", null, null}, 7);
+    waitlist.removeStudents(new HashSet<>());
+    assertArrayEquals(new String[]{"a", "b", "c", "d", "e", null, null}, waitlist.getWaitlist());
   }
 
   // Hints:
