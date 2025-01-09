@@ -34,7 +34,7 @@ public class Waitlist {
    * @param toRemove studentIds of the students to remove
    */
   public void removeStudents(Set<String> toRemove) {
-    // TODO: Implement this!
+    // DONE: Implement this!
     // The remaining students should be slid down to the front of the array, not
     // leaving any gaps. All the nulls should be at the end.
     // Example:
@@ -50,7 +50,24 @@ public class Waitlist {
     // Where n is studentIds.length
 
     // Don't forget to write tests too!
-  }
+
+    int studentIndex = 0;
+    //For loop iterating through 
+    for (int i = 0; i < studentIds.length; i++) {
+      //If the student ID is not passed in the removed set and if its not null, then move to the next position
+      if (studentIds[i] != null && !toRemove.contains(studentIds[i])) {
+        //update and move to studentIndex position
+        studentIds[studentIndex] = studentIds[i]; 
+        studentIndex++;
+      }
+    }
+  
+    //While loop set remaining positions to null 
+    while (studentIndex < studentIds.length) {
+      studentIds[studentIndex] = null;
+      studentIndex++;
+    }
+}
 
   /**
    * Returns a copy of the waitlist.
