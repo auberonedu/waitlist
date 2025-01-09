@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;
+import java.util.HashSet;
 
 
 public class WaitlistTest {
@@ -12,7 +13,15 @@ public class WaitlistTest {
   // - When comparing arrays you should use Arrays.equals instead of the equals instance method or ==
   //     java.util.Arrays is imported for you at the top of this file.
   
-  
-  
+  @Test
+  public void testRemoveAllStudents() {
+    String[] initialIds = {"x", "r", "q", "m", "v"};
+    Waitlist waitlist = new Waitlist(initialIds, 7);
+
+    // Case 1: Remove some students
+    waitlist.removeStudents(new HashSet<>(Arrays.asList("r", "m")));
+    String[] expected = {"x", "q", "v", null, null, null, null};
+    assertArrayEquals(expected, waitlist.getWaitlist());
+  }
 
 }
