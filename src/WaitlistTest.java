@@ -17,7 +17,7 @@ public class WaitlistTest {
   @Test
   void removeOneStudent(){
     Waitlist test = new Waitlist(students, 6);
-    String[] expectedStudents = {"k", "h", "r", "l", "null"};
+    String[] expectedStudents = {"k", "h", "r", "l", null, null};
     Set<String> set = new HashSet<>();
     set.add("b");
     test.removeStudents(set);
