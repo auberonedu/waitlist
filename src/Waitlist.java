@@ -7,19 +7,22 @@ public class Waitlist {
   /**
    * Creates a waitlist with the given student IDs and capacity.
    * 
-   * The `capacity` determines the maximum number of students that can be on the waitlist.
-   * If `capacity` is larger than the number of given student IDs, the additional slots 
+   * The `capacity` determines the maximum number of students that can be on the
+   * waitlist.
+   * If `capacity` is larger than the number of given student IDs, the additional
+   * slots
    * in the waitlist will be initialized as `null`.
    * 
    * @param studentIds the initial student IDs to include on the waitlist
-   * @param capacity the total capacity of the waitlist
-   * @throws IllegalArgumentException if `capacity` is smaller than the number of given student IDs
+   * @param capacity   the total capacity of the waitlist
+   * @throws IllegalArgumentException if `capacity` is smaller than the number of
+   *                                  given student IDs
    */
   public Waitlist(String[] studentIds, int capacity) {
     if (capacity < studentIds.length) {
       throw new IllegalArgumentException(
-          "Capacity (" + capacity + ") cannot be smaller than the number of student IDs given (" + studentIds.length + ")."
-      );
+          "Capacity (" + capacity + ") cannot be smaller than the number of student IDs given (" + studentIds.length
+              + ").");
     }
     this.studentIds = Arrays.copyOf(studentIds, capacity);
   }
@@ -41,8 +44,7 @@ public class Waitlist {
     // studentIds: ["x", "r", "q", "m", "v", null, null]
     // toRemove: {"r", "m"}
     //
-    // expected studentIds after running: ["x", "q", "v", null, null, null, null] 
-
+    // expected studentIds after running: ["x", "q", "v", null, null, null, null]
 
     // Required complexity:
     // Time: O(n)
@@ -51,24 +53,51 @@ public class Waitlist {
 
     // Don't forget to write tests too!
 
-    
-   
-    String placeholder = "";
-    for(int i = 0; i < studentIds.length -1; i++){
-       if (studentIds[i] == null) {
-        placeholder = studentIds[i + 1];
-        studentIds[i + 1] = null;
-        studentIds[i] = placeholder;
-       }
-       
-      if(toRemove.contains(studentIds[i])){
+    for (int i = 0; i < studentIds.length - 1; i++) {
+      if (toRemove.contains(studentIds[i])) {
         studentIds[i] = null;
-        placeholder = studentIds[i + 1];
-        studentIds[i + 1] = null;
-        studentIds[i] = placeholder;
+      }
+
+      // pushing nulls to back
+      // for(int i = 0; i < studentIds.length -1; i++){
+      // if (studentIds[i] == null) {
+      // placeholder = studentIds[i + 1];
+      // studentIds[i + 1] = null;
+      // studentIds[i] = placeholder;
+      // }
+
+      // removing all ids
+      // if(toRemove.contains(studentIds[i])){
+      // studentIds[i] = null;
+      // placeholder = studentIds[i + 1];
+      // studentIds[i + 1] = null;
+      // studentIds[i] = placeholder;
+      // }
+
+      // The problem with the code above is that it was doing to many things at once
+      // meaning that it would be checking to see if the current item was null and also checking if it needed to remove something
+      // this didn't produce the desired array because the logic was out of sort. It workeed but not 
+
+      // with the approach below it first puts items as null
+      // then in the second for loop it would move the null items to the back 
+      int goodSpot = 0;
+      // this is the placeholder to where we will be moving eligible j into 
+      for (int j = 0; j < studentIds.length; j++) {
+        if (studentIds[j] != null) {
+          studentIds[goodSpot] = studentIds[j];
+          // if the current index is not null set studentIds at postion GOODSPOT to the j index of student ids
+
+          if (goodSpot != j) {
+            studentIds[j] = null;
+            //once the above is completed (the above if statement)
+            // if the goodSpot index is NOT THE SAME as the j index, meaning that the valid elemnt has been moved 
+            // we need to clear the original position j to remove/prevent duplciates
+          }
+          goodSpot++;
+        }
+
       }
     }
-    System.out.println(Arrays.toString(studentIds));
   }
 
   /**
@@ -76,7 +105,8 @@ public class Waitlist {
    * 
    * Null values represent open spaces on the waitlist.
    * 
-   * @return a copy of the current waitlist array, including `null` values for open slots
+   * @return a copy of the current waitlist array, including `null` values for
+   *         open slots
    */
   public String[] getWaitlist() {
     return Arrays.copyOf(studentIds, studentIds.length);
