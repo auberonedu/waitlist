@@ -50,6 +50,18 @@ public class Waitlist {
     // Where n is studentIds.length
 
     // Don't forget to write tests too!
+
+    
+    
+    for(int i = 0; i > studentIds.length; i++){
+    String currentVal = studentIds[i];
+
+    if(toRemove.contains(currentVal)){
+     
+    }
+      
+      
+    }
   }
 
   /**
