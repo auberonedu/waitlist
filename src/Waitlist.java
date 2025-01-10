@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Waitlist {
@@ -35,6 +36,22 @@ public class Waitlist {
    */
   public void removeStudents(Set<String> toRemove) {
     // TODO: Implement this!
+
+    int writeIndex = 0;
+
+    //shift all non-matching values in toRemove to the front of the array
+    for(int i = 0; i < studentIds.length; i++){
+      if(!toRemove.contains(studentIds[i]) && studentIds[i] != null){
+        studentIds[writeIndex] = studentIds[i];
+        writeIndex++;}
+      }
+       //fill remaining slots as null starting at where writeIndex is in the array
+       for(int i = writeIndex; i < studentIds.length; i++){
+        studentIds[i] = null;
+    }
+  }
+
+
     // The remaining students should be slid down to the front of the array, not
     // leaving any gaps. All the nulls should be at the end.
     // Example:
@@ -50,7 +67,7 @@ public class Waitlist {
     // Where n is studentIds.length
 
     // Don't forget to write tests too!
-  }
+  
 
   /**
    * Returns a copy of the waitlist.
@@ -66,5 +83,11 @@ public class Waitlist {
   @Override
   public String toString() {
     return Arrays.toString(studentIds);
+  }
+
+  public static void main(String[] args) {
+    Waitlist waitlist = new Waitlist(new String[]{"s1", "s2", "s3", "s4", "s5"}, 7);
+    waitlist.removeStudents(new HashSet<>(Arrays.asList("s2", "s4")));
+    System.out.println(waitlist);
   }
 }
