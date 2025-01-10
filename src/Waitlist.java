@@ -61,8 +61,36 @@ public class Waitlist {
           studentIds[i] = null;
         } else {
           studentIds[i] = studentIds[i+1];
+          studentIds[i+1] = null;
         }
       }
+
+      // is it null
+      // does set contain
+      // pointer right index
+
+
+      // loop through studentid from end
+        // if null, nothing
+        // else
+          // is in set
+            // if yes, replace
+
+      // we have a valid list, nulls are kind of everywhere
+      // create a firstnull boolean, set to false
+      // create a firstnull index ( = 0 )
+      // loop
+        // at index, check if null && firstnullbool is currently false
+          // set firstnull boolean to true
+          // set firstnullindex to i (current index)
+        // else if nullbool is true
+          // [firstnullindex] = [i]
+          // [i] = null
+          // i = fnullindex
+          // fnullboolnean = false
+
+        
+        
     }
 
     
