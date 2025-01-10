@@ -52,17 +52,23 @@ public class Waitlist {
     // Don't forget to write tests too!
 
     
-    
+   
+    String placeholder = "";
     for(int i = 0; i < studentIds.length -1; i++){
-    
-
-    if(toRemove.contains(studentIds[i])){
-     studentIds[i] = studentIds [i + 1];
-      System.out.println(studentIds);
+       if (studentIds[i] == null) {
+        placeholder = studentIds[i + 1];
+        studentIds[i + 1] = null;
+        studentIds[i] = placeholder;
+       }
+       
+      if(toRemove.contains(studentIds[i])){
+        studentIds[i] = null;
+        placeholder = studentIds[i + 1];
+        studentIds[i + 1] = null;
+        studentIds[i] = placeholder;
+      }
     }
-    
-      
-    }
+    System.out.println(Arrays.toString(studentIds));
   }
 
   /**

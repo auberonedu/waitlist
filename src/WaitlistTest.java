@@ -1,6 +1,9 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.*;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class WaitlistTest {
@@ -8,19 +11,22 @@ public class WaitlistTest {
   // TODO: Implement tests for removeStudents
 @Test
 void testWaitlist(){
-  String[] StudentIds = {"String1", "String 2", "String 3", "string4"};
+  //copy paste 
+  String[] StudentIds = {"x", "r", "q", "m", "v", null, null};
   Waitlist testing = new Waitlist(StudentIds, 7);
 
   Set<String> toRemove = new HashSet<>();
-  toRemove.add("String3");
-  toRemove.add("String1");
+  toRemove.add("r");
+  toRemove.add("m");
   testing.removeStudents(toRemove);
   
   
-  String[] expected = {"String5", "String4", null, null, null, null, null};
-
-  testing.getWaitlist();
-  Arrays.equals(expected , testing.getWaitlist());
+  String[] expected = {"x", "q", "v", null, null, null, null};
+// == is reference equality
+  
+  System.out.println(testing.toString());
+  assertArrayEquals(expected , testing.getWaitlist());
+  
 }
   
 
