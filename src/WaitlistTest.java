@@ -29,4 +29,16 @@ public class WaitlistTest {
 
     assertTrue(Arrays.equals(expectedArr, testWaitlist.getWaitlist()));
   }
+
+  @Test
+  void testRemoveStudentsWithNumbers() {
+    Waitlist list = new Waitlist(new String[]{"m", "2", "x", "z", "67", "a", "25", "2"}, 8);
+    Set<String> set = new HashSet<>();
+    set.add("25");
+    set.add("67");
+    list.removeStudents(set);
+
+    assertArrayEquals(new String[]{"m", "2", "x", "z", "a", "2", null, null}, list.getWaitlist());
+  }
+
 }
