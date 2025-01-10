@@ -50,6 +50,34 @@ public class Waitlist {
     // Where n is studentIds.length
 
     // Don't forget to write tests too!
+    if (studentIds == null) {
+      throw new NullPointerException("Array is null");
+    }
+
+    if (studentIds.length == 0) {
+      throw new IllegalArgumentException("Empty array");
+    }
+
+    if (toRemove.size() == 0 || toRemove == null) {
+      throw new IllegalArgumentException("The set of ids to remove is empty or null");
+    }
+
+    // store index of last element that isn't removed to overwrite it later with another
+    // will also need this index for a later loop to overwrite indexes with null
+    int notRemoved = 0;
+
+    // iterates through to overwrite removed id indexes with not removed elements
+    for (int i = 0; i < studentIds.length; i++) {
+      if (studentIds[i] !=null && !toRemove.contains(studentIds[i])) {
+        studentIds[notRemoved] = studentIds[i];
+        notRemoved++;
+      }
+    }
+
+    // fill in null for the spots that should be null, after the last spot of the ids not removed
+    for (int i = notRemoved; i < studentIds.length; i++) {
+      studentIds[i] = null;
+    }
   }
 
   /**
