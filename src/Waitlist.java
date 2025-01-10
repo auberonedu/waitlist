@@ -63,17 +63,22 @@ public class Waitlist {
       } */
     
     // replace id's in studentIds list that are in toRemove Set with null 
-    for (String id : studentIds){
+    /* for (String id : studentIds){
       if (toRemove.contains(id)){
         id = null;
       }
+    } */
+    for (int i = 0; i < studentIds.length; i++) {
+      if(toRemove.contains(studentIds[i])){
+        studentIds[i] = null;
+      }
+
     }
 
-
+    System.out.println(Arrays.toString(studentIds));
       // is it null
       // does set contain
       // pointer right index
-
 
       // loop through studentid from end
         // if null, nothing
@@ -81,9 +86,36 @@ public class Waitlist {
           // is in set
             // if yes, replace
 
-      // we have a valid list, nulls are kind of everywhere
-      // create a firstnull boolean, set to false
-      // create a firstnull index ( = 0 )
+    // we have a valid list, nulls are kind of everywhere
+    // create a firstnull boolean, set to false
+    boolean fNullBoolean = false;
+    // create a firstnull index ( = 0 )
+    int fNullIndex = 0;
+
+    for (int i = 0; i < studentIds.length; i++) {
+      System.out.println(Arrays.toString(studentIds));
+      // check if the current id is the first null in the array
+      if ((studentIds[i] == null) && !fNullBoolean){
+        // flag that we've found a null & save it's index
+        fNullBoolean = true;
+        fNullIndex = i;
+      } // check if the current id is not null & that a null was found at an 
+        //ealier index
+      else if (studentIds[i] != null && fNullBoolean){
+        // replace the found null with the current id
+        studentIds[fNullIndex] = studentIds[i];
+
+        // replace current id with null
+        studentIds[i] = null;
+
+        // set i to last null's index (to find any nulls after teh first one)
+        i = fNullIndex;
+
+        // reset found first null boolean flag
+        fNullBoolean = false; 
+      }
+
+      
       // loop
         // at index, check if null && firstnullbool is currently false
           // set firstnull boolean to true
@@ -93,10 +125,9 @@ public class Waitlist {
           // [i] = null
           // i = fnullindex
           // fnullboolnean = false
-
-        
-        
     }
+  
+  }
 
   /**
    * Returns a copy of the waitlist.
