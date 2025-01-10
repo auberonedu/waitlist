@@ -59,8 +59,12 @@ public class Waitlist {
       throw new IllegalArgumentException("Empty array");
     }
 
-    if (toRemove.size() == 0 || toRemove == null) {
-      throw new IllegalArgumentException("The set of ids to remove is empty or null");
+    if (toRemove == null) {
+      throw new NullPointerException("The set of ids to remove is null");
+    }
+
+    if (toRemove.isEmpty()) {
+      throw new IllegalArgumentException("The set of ids to remove is empty");
     }
 
     // store index of last element that isn't removed to overwrite it later with another

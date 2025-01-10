@@ -54,4 +54,19 @@ public class WaitlistTest {
 
     assertArrayEquals(new String[] { null, null, null, null }, list.getWaitlist());
   }
+
+  @Test
+  void testRemoveStudentsWithEmptySet() {
+    Waitlist list = new Waitlist(new String[] {"z", "x", "y"}, 3);
+    Set<String> set = new HashSet<>();
+
+    assertThrows(IllegalArgumentException.class, () -> list.removeStudents(set));
+  }
+
+  @Test
+  void testRemoveStudentsWithNullSet() {
+    Waitlist list = new Waitlist(new String[] {"z", "x", "y"}, 3);
+
+    assertThrows(NullPointerException.class, () -> list.removeStudents(null));
+  }
 }
