@@ -34,7 +34,6 @@ public class Waitlist {
    * @param toRemove studentIds of the students to remove
    */
   public void removeStudents(Set<String> toRemove) {
-    // TODO: Implement this!
     // The remaining students should be slid down to the front of the array, not
     // leaving any gaps. All the nulls should be at the end.
     // Example:
@@ -43,13 +42,51 @@ public class Waitlist {
     //
     // expected studentIds after running: ["x", "q", "v", null, null, null, null] 
 
-
     // Required complexity:
     // Time: O(n)
     // Space: O(1)
     // Where n is studentIds.length
 
     // Don't forget to write tests too!
+
+    for (int i = 0; i < studentIds.length; i++) {
+      if(toRemove.contains(studentIds[i])){
+        studentIds[i] = null;
+      }
+
+    }
+
+    System.out.println(Arrays.toString(studentIds));
+
+    // create a firstnull boolean, set to false
+    boolean fNullBoolean = false;
+    // create a firstnull index ( = 0 )
+    int fNullIndex = 0;
+
+    for (int i = 0; i < studentIds.length; i++) {
+      System.out.println(Arrays.toString(studentIds));
+      // check if the current id is the first null in the array
+      if ((studentIds[i] == null) && !fNullBoolean){
+        // flag that we've found a null & save it's index
+        fNullBoolean = true;
+        fNullIndex = i;
+      } // check if the current id is not null & that a null was found at an 
+        //ealier index
+      else if (studentIds[i] != null && fNullBoolean){
+        // replace the found null with the current id
+        studentIds[fNullIndex] = studentIds[i];
+
+        // replace current id with null
+        studentIds[i] = null;
+
+        // set i to last null's index (to find any nulls after the first one)
+        i = fNullIndex;
+
+        // reset found first null boolean flag
+        fNullBoolean = false; 
+      }
+    }
+  
   }
 
   /**
