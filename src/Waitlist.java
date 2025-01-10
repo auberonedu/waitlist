@@ -34,7 +34,6 @@ public class Waitlist {
    * @param toRemove studentIds of the students to remove
    */
   public void removeStudents(Set<String> toRemove) {
-    // TODO: Implement this!
     // The remaining students should be slid down to the front of the array, not
     // leaving any gaps. All the nulls should be at the end.
     // Example:
@@ -43,7 +42,6 @@ public class Waitlist {
     //
     // expected studentIds after running: ["x", "q", "v", null, null, null, null] 
 
-
     // Required complexity:
     // Time: O(n)
     // Space: O(1)
@@ -51,23 +49,6 @@ public class Waitlist {
 
     // Don't forget to write tests too!
 
-    //old code
-    /* for (int i = studentIds.length - 1; i >= 0; i--) {
-      if (toRemove.contains(studentIds[i])) {
-        if (i == studentIds.length - 1) {
-          studentIds[i] = null;
-        } else {
-          studentIds[i] = studentIds[i+1];
-          studentIds[i+1] = null;
-        }
-      } */
-    
-    // replace id's in studentIds list that are in toRemove Set with null 
-    /* for (String id : studentIds){
-      if (toRemove.contains(id)){
-        id = null;
-      }
-    } */
     for (int i = 0; i < studentIds.length; i++) {
       if(toRemove.contains(studentIds[i])){
         studentIds[i] = null;
@@ -76,17 +57,7 @@ public class Waitlist {
     }
 
     System.out.println(Arrays.toString(studentIds));
-      // is it null
-      // does set contain
-      // pointer right index
 
-      // loop through studentid from end
-        // if null, nothing
-        // else
-          // is in set
-            // if yes, replace
-
-    // we have a valid list, nulls are kind of everywhere
     // create a firstnull boolean, set to false
     boolean fNullBoolean = false;
     // create a firstnull index ( = 0 )
@@ -108,23 +79,12 @@ public class Waitlist {
         // replace current id with null
         studentIds[i] = null;
 
-        // set i to last null's index (to find any nulls after teh first one)
+        // set i to last null's index (to find any nulls after the first one)
         i = fNullIndex;
 
         // reset found first null boolean flag
         fNullBoolean = false; 
       }
-
-      
-      // loop
-        // at index, check if null && firstnullbool is currently false
-          // set firstnull boolean to true
-          // set firstnullindex to i (current index)
-        // else if nullbool is true
-          // [firstnullindex] = [i]
-          // [i] = null
-          // i = fnullindex
-          // fnullboolnean = false
     }
   
   }
