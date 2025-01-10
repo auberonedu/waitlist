@@ -50,6 +50,7 @@ public class Waitlist {
     // Where n is studentIds.length
 
     // Don't forget to write tests too!
+    // logic for to handle null and empty arrays or sets
     if (studentIds == null) {
       throw new NullPointerException("Array is null");
     }
