@@ -22,6 +22,11 @@ public class WaitlistTest {
     assertTrue(Arrays.equals(expectedArray, testWaitlist.getWaitlist()));
   } 
 
+  @Test
+  void removeStudentsSparadic(){
+    
+  }
+
   // Hints:
   // - removeStudents is an instance method, so your arrange will need to create an instance of Waitlist
   // - When comparing arrays you should use Arrays.equals instead of the equals instance method or ==

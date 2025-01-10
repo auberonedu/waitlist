@@ -61,11 +61,11 @@ public class Waitlist {
           studentIds[i] = null;
         } else {
           studentIds[i] = studentIds[i+1];
-          // nulls need to be "Added" at the end!
-          studentIds[i+1] = null;
         }
       }
     }
+
+    
     
       
 
