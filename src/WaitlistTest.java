@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class WaitlistTest {
 
-  String[] studentIds = {"x", "r", "q", "m", "v"};
+  String[] studentIds = {"x", "r", "q", "m", "v", null, null};
   int capacity = 7;
   
   // TODO: Implement tests for removeStudents
@@ -23,8 +23,13 @@ public class WaitlistTest {
   } 
 
   @Test
-  void removeStudentsSparadic(){
-    
+  void removeStudentsNoneToRemove() {
+    Set<String> removeSet = new HashSet<>(Set.of());
+    Waitlist testWaitlist = new Waitlist(studentIds, capacity);
+    testWaitlist.removeStudents(removeSet);
+
+    String[] expectedArray = {"x", "r", "q", "m", "v", null, null};
+    assertTrue(Arrays.equals(expectedArray, testWaitlist.getWaitlist()));
   }
 
   // Hints:
