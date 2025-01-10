@@ -43,13 +43,21 @@ public class Waitlist {
     //
     // expected studentIds after running: ["x", "q", "v", null, null, null, null] 
 
-
     // Required complexity:
     // Time: O(n)
     // Space: O(1)
     // Where n is studentIds.length
-
     // Don't forget to write tests too!
+
+    int index = 0;
+    for (int i = 0; i < studentIds.length; i++) {
+      if (toRemove.contains(studentIds[i])) {
+        studentIds[i] = null;
+      } else {
+        studentIds[index] = studentIds[i];
+        index++;
+      }
+    }
   }
 
   /**
