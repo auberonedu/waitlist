@@ -53,13 +53,14 @@ public class Waitlist {
 
     
     
-    for(int i = 0; i > studentIds.length; i++){
-    String currentVal = studentIds[i];
+    for(int i = 0; i < studentIds.length -1; i++){
+    
 
-    if(toRemove.contains(currentVal)){
-     
+    if(toRemove.contains(studentIds[i])){
+     studentIds[i] = studentIds [i + 1];
+      System.out.println(studentIds);
     }
-      
+    
       
     }
   }
