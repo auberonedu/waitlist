@@ -10,7 +10,6 @@ public class WaitlistTest {
   String[] studentIds = {"x", "r", "q", "m", "v", null, null};
   int capacity = 7;
   
-  // TODO: Implement tests for removeStudents
   @Test
   void removeStudentsBasic() {
     Set<String> removeSet = new HashSet<>(Set.of("r", "m"));
@@ -31,6 +30,18 @@ public class WaitlistTest {
     String[] expectedArray = {"x", "r", "q", "m", "v", null, null};
     assertTrue(Arrays.equals(expectedArray, testWaitlist.getWaitlist()));
   }
+
+  // TODO: test for id to remove next to each other 
+  // toRemove = {"r", "q"}
+
+  // TODO: test for removing first id
+  // toRemove = {"x"}
+
+  // TODO: test for removing last id
+  // studentIds = {a, b, c} toRemove = {c}
+
+  // TODO: test for removing all ids
+  // toRemove = {"x", "r", "q", "m", "v"}
 
   // Hints:
   // - removeStudents is an instance method, so your arrange will need to create an instance of Waitlist
