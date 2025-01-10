@@ -69,4 +69,18 @@ public class WaitlistTest {
 
     assertThrows(NullPointerException.class, () -> list.removeStudents(null));
   }
+
+  @Test
+  void testRemoveStudentsWithEmptyArray() {
+    Waitlist list = new Waitlist(new String[] {}, 0);
+    Set<String> set = new HashSet<>();
+    set.add("a");
+
+    assertThrows(IllegalArgumentException.class, () -> list.removeStudents(set));
+  }
+
+  @Test
+  void testRemoveStudentsWithNullArray() {
+    assertThrows(NullPointerException.class, () -> new Waitlist(null, 0));
+  }
 }
