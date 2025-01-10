@@ -51,11 +51,8 @@ public class Waitlist {
 
     // Don't forget to write tests too!
 
-    // loop through student ids - TODO: stop when there is a null
-
-    // check if element at index 1, check if set.contains
-
-    for (int i = studentIds.length - 1; i >= 0; i--) {
+    //old code
+    /* for (int i = studentIds.length - 1; i >= 0; i--) {
       if (toRemove.contains(studentIds[i])) {
         if (i == studentIds.length - 1) {
           studentIds[i] = null;
@@ -63,7 +60,15 @@ public class Waitlist {
           studentIds[i] = studentIds[i+1];
           studentIds[i+1] = null;
         }
+      } */
+    
+    // replace id's in studentIds list that are in toRemove Set with null 
+    for (String id : studentIds){
+      if (toRemove.contains(id)){
+        id = null;
       }
+    }
+
 
       // is it null
       // does set contain
@@ -92,16 +97,6 @@ public class Waitlist {
         
         
     }
-
-    
-    
-      
-
-        
-
-      
-
-  }
 
   /**
    * Returns a copy of the waitlist.
