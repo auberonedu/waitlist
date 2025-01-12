@@ -50,7 +50,19 @@ public class Waitlist {
     // Where n is studentIds.length
 
     // Don't forget to write tests too!
+
+    int studentIndex = 0;
+    for (int i = 0; i < studentIds.length; i++) {
+      String studentId = studentIds[i];
+      if (studentId != null && !toRemove.contains(studentId)) {
+        studentIds[studentIndex] = studentId;
+        studentIndex++;
+      }
+    }
   }
+
+  // For me to continue - Juno
+
 
   /**
    * Returns a copy of the waitlist.
