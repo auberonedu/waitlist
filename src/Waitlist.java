@@ -49,14 +49,18 @@ public class Waitlist {
     // Where n is studentIds.length
     // Don't forget to write tests too!
 
+    // Traverse the studentIds array, if toRemove set contains a target that is in studentIds array
+    // nullify it, else if it isn't null, put the element at the beginning index=0 position and nullify
+    // the duplicate, then increment index for the next position.
     int index = 0;
     for (int i = 0; i < studentIds.length; i++) {
       if (toRemove.contains(studentIds[i])) {
         studentIds[i] = null;
-      } else {
-        studentIds[index] = studentIds[i];
-        index++;
-      }
+      } else if (studentIds[i] != null) {
+          studentIds[index] = studentIds[i];
+          studentIds[i] = null;
+          index++;
+        }
     }
   }
 
