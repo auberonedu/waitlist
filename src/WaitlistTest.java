@@ -57,4 +57,21 @@ public class WaitlistTest {
     assertArrayEquals(expected, waitlist.getWaitlist());
   }
 
+  // Testing constructor with extra capactity
+  @Test
+  public void testConstructorWithExtraCapacity() {
+    String[] initialIds = {"a", "b"};
+    Waitlist waitlist = new Waitlist(initialIds, 5);
+    String[] expected = {"a", "b", null, null, null, null};
+    assertArrayEquals(expected, waitlist.getWaitlist());
+  }
+
+  // Testing constructor with exact capacity
+  @Test
+  public void testConstructorWithExactCapacity() {
+    String[] initialIds = {"a", "b"};
+    Waitlist waitlist = new Waitlist(initialIds, 2);
+    String[] expected = {"a", "b"};
+    assertArrayEquals(expected, waitlist.getWaitlist());
+  }
 }
