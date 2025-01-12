@@ -22,6 +22,17 @@ public class WaitlistTest {
     waitlist.removeStudents(new HashSet<>(Arrays.asList("r", "m")));
     String[] expected = {"x", "q", "v", null, null, null, null};
     assertArrayEquals(expected, waitlist.getWaitlist());
+
+    // Case 2: Remove a student not in the list
+    waitlist.removeStudents(new HashSet<>(Arrays.asList("z")));
+    assertArrayEquals(expected, waitlist.getWaitlist());
+
+    // Case 3: Remove all students
+    waitlist.removeStudents(new HashSet<>(Arrays.asList("x", "q", "v")));
+    String[] expectedEmpty = {null, null, null, null, null, null, null};
+    assertArrayEquals(expectedEmpty, waitlist.getWaitlist());
+
+    // Case 4: Remove from all already empty waitlist
   }
 
   // Testing to see if the program doesn't have to remove any students.
@@ -45,4 +56,5 @@ public class WaitlistTest {
     String[] expected = {"x", "q", "m", "v", null, null, null};
     assertArrayEquals(expected, waitlist.getWaitlist());
   }
+
 }
