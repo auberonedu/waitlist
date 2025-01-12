@@ -41,8 +41,7 @@ public class Waitlist {
     // studentIds: ["x", "r", "q", "m", "v", null, null]
     // toRemove: {"r", "m"}
     //
-    // expected studentIds after running: ["x", "q", "v", null, null, null, null] 
-
+    // expected studentIds after running: ["x", "q", "v", null, null, null, null]
 
     // Required complexity:
     // Time: O(n)
@@ -50,6 +49,28 @@ public class Waitlist {
     // Where n is studentIds.length
 
     // Don't forget to write tests too!
+
+    // loop through the array. if the current index is not null
+    // and not part of the toRemove set, write the currentID to the endIndex.
+    // endIndex does not increment when passing over elements which are
+    // contained in the toRemove set which allows these elements to be overwritten.
+    
+    int endIndex = 0; // tracker variable
+
+    for (int i = 0; i < studentIds.length; i++) {
+      String currentID = studentIds[i];
+      if (currentID != null && !toRemove.contains(currentID)) {
+        studentIds[endIndex] = currentID;
+        endIndex++;
+      }
+    }
+
+    // after overwriting the student IDs to be removed, replace
+    // the rest of the array values with null.
+    while (endIndex < studentIds.length) {
+      studentIds[endIndex] = null;
+      endIndex++;
+    }
   }
 
   /**
