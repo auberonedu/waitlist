@@ -24,4 +24,25 @@ public class WaitlistTest {
     assertArrayEquals(expected, waitlist.getWaitlist());
   }
 
+  // Testing to see if the program doesn't have to remove any students.
+  @Test
+  public void testToRemoveNoStudent() {
+    String[] initialIds = {"x", "r", "q", "m", "v"};
+    Waitlist waitlist = new Waitlist(initialIds, 7);
+
+    waitlist.removeStudents(new HashSet<>());
+    String[] expected = {"x", "r", "q", "m", "v", null, null};
+    assertArrayEquals(expected, waitlist.getWaitlist());
+  }
+
+  // Testing to see if there are duplicate studentId's
+  @Test
+  public void testDuplicateStudentIds() {
+    String[] initialIds = {"x", "r", "q", "m", "v"};
+    Waitlist waitlist = new Waitlist(initialIds, 7);
+
+    waitlist.removeStudents(new HashSet<>(Arrays.asList("r", "r")));
+    String[] expected = {"x", "q", "m", "v", null, null, null};
+    assertArrayEquals(expected, waitlist.getWaitlist());
+  }
 }
