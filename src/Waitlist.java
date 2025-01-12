@@ -59,10 +59,12 @@ public class Waitlist {
         studentIndex++;
       }
     }
+    // Fills the remaining slot with null 
+    while (studentIndex < studentIds.length) {
+      studentIds[studentIndex] = null;
+      studentIndex++;
+    }
   }
-
-  // For me to continue - Juno
-
 
   /**
    * Returns a copy of the waitlist.
