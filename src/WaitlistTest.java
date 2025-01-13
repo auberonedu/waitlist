@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class WaitlistTest {
   
   // TODO: Implement tests for removeStudents
-
+  @Test
   // Hints:
   // - removeStudents is an instance method, so your arrange will need to create an instance of Waitlist
   // - When comparing arrays you should use Arrays.equals instead of the equals instance method or ==

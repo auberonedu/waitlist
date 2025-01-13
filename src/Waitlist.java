@@ -35,6 +35,20 @@ public class Waitlist {
    */
   public void removeStudents(Set<String> toRemove) {
     // TODO: Implement this!
+
+    for (int i = 0; i < studentIds.length; i++) {
+      if(studentIds[i].equals(toRemove)){
+        studentIds[i] = null;
+      }
+    }
+    for (int i = 0; i < studentIds.length; i++) {
+      if(studentIds[i].equals(null)){
+        if(!studentIds[i + 1].equals(null)){
+          studentIds[i] = studentIds[i + 1];
+          studentIds[i + 1] = null;
+        }
+      }
+    }
     // The remaining students should be slid down to the front of the array, not
     // leaving any gaps. All the nulls should be at the end.
     // Example:
@@ -66,5 +80,4 @@ public class Waitlist {
   @Override
   public String toString() {
     return Arrays.toString(studentIds);
-  }
-}
+  } 
