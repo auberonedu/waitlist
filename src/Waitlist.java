@@ -42,18 +42,17 @@ public class Waitlist {
     // toRemove: {"r", "m"}
     //
     // expected studentIds after running: ["x", "q", "v", null, null, null, null]
-
+    int i = 0;
     // Pseudocode:
     // Iterate over studentIds - For loop
-      for (int i = studentIds.length; i > 0; i--) {
-        // If the studentId is in toRemove, remove it - If statement
-          if () {
-
-          }
+      for (String id : studentIds) {
+        if (id != null && !toRemove.contains(id)) {
+          studentIds[i++] = id;
+        }
       }
     // Slide the remaining students down to the front of the array
     // Fill the remaining slots with null
-    
+    Arrays.fill(studentIds, i, studentIds.length, null);
 
 
     // Required complexity:
