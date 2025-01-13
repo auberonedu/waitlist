@@ -50,6 +50,20 @@ public class Waitlist {
     // Where n is studentIds.length
 
     // Don't forget to write tests too!
+
+    int studentIndex = 0;
+    for (int i = 0; i < studentIds.length; i++) {
+      String studentId = studentIds[i];
+      if (studentId != null && !toRemove.contains(studentId)) {
+        studentIds[studentIndex] = studentId;
+        studentIndex++;
+      }
+    }
+    // Fills the remaining slot with null 
+    while (studentIndex < studentIds.length) {
+      studentIds[studentIndex] = null;
+      studentIndex++;
+    }
   }
 
   /**
