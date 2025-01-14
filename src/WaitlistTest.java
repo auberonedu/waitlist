@@ -1,14 +1,22 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;
-
+import java.util.HashSet;
+import java.util.Set;
 
 public class WaitlistTest {
-  
-  // TODO: Implement tests for removeStudents
 
-  // Hints:
-  // - removeStudents is an instance method, so your arrange will need to create an instance of Waitlist
-  // - When comparing arrays you should use Arrays.equals instead of the equals instance method or ==
-  //     java.util.Arrays is imported for you at the top of this file. 
+    @Test
+    public void removeTest() {
+        String[] studentIds = {"s1", "s2", "s3", "s4"};
+        Waitlist list = new Waitlist(studentIds, 4);
+
+        Set<String> removeId = new HashSet<>();
+        removeId.add("s2");
+
+        list.removeStudents(removeId);
+        String[] result = {"s1", "s3", "s4", null};
+
+        assertArrayEquals(result, list.getWaitlist());
+    }
 }
