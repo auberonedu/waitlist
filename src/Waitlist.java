@@ -53,10 +53,11 @@ public class Waitlist {
 
     // Don't forget to write tests too!
 
-    for (int i = 0; i < studentIds.length - 1; i++) {
-      if (toRemove.contains(studentIds[i])) {
-        studentIds[i] = null;
+    for (int j = 0; j < studentIds.length - 1; j++) {
+      if (toRemove.contains(studentIds[j])) {
+        studentIds[j] = null;
       }
+      
 
       // pushing nulls to back
       // for(int i = 0; i < studentIds.length -1; i++){
@@ -82,23 +83,36 @@ public class Waitlist {
       // then in the second for loop it would move the null items to the back 
       int goodSpot = 0;
       // this is the placeholder to where we will be moving eligible j into 
-      for (int j = 0; j < studentIds.length; j++) {
-        if (studentIds[j] != null) {
-          studentIds[goodSpot] = studentIds[j];
-          // if the current index is not null set studentIds at postion GOODSPOT to the j index of student ids
+      
+      // for (int j = 0; j < studentIds.length; j++) {
+      //   if (studentIds[j] != null) {
+      //     studentIds[goodSpot] = studentIds[j];
+      //     // if the current index is not null set studentIds at postion GOODSPOT to the j index of student ids
 
-          if (goodSpot != j) {
-            studentIds[j] = null;
-            //once the above is completed (the above if statement)
-            // if the goodSpot index is NOT THE SAME as the j index, meaning that the valid elemnt has been moved 
-            // we need to clear the original position j to remove/prevent duplciates
-          }
-          goodSpot++;
+      //     if (goodSpot != j) {
+      //       studentIds[j] = null;
+      //       //once the above is completed (the above if statement)
+      //       // if the goodSpot index is NOT THE SAME as the j index, meaning that the valid elemnt has been moved 
+      //       // we need to clear the original position j to remove/prevent duplciates
+      //     }
+      //     goodSpot++;
+      //   }
+
+      // }
+
+      for (int i = 0; i < studentIds.length; i++) {
+        if (studentIds[i] != null && !toRemove.contains(studentIds[i])) {
+            studentIds[goodSpot] = studentIds[i];
+            if (goodSpot != i) {
+                studentIds[i] = null; // Clear the old position
+            }
+            goodSpot++;
         }
-
-      }
     }
-  }
+}
+      
+    }
+  
 
   /**
    * Returns a copy of the waitlist.
