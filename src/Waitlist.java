@@ -50,6 +50,8 @@ public class Waitlist {
     // Where n is studentIds.length
 
     // Don't forget to write tests too!
+
+    int writeIndex = 0;
   }
 
   /**
