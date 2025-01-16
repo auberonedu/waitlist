@@ -68,13 +68,13 @@ public class Waitlist {
   
       // Fill the remaining slots with null
       while (writeIndex < studentIds.length) {
-        
+
         studentIds[writeIndex] = null;
         writeIndex++;
       }
     }
   
-  }
+  
 
   /**
    * Returns a copy of the waitlist.
@@ -85,10 +85,27 @@ public class Waitlist {
    */
   public String[] getWaitlist() {
     return Arrays.copyOf(studentIds, studentIds.length);
+
   }
 
   @Override
   public String toString() {
     return Arrays.toString(studentIds);
   }
+
+  public static void main(String[] args) {
+    // Example usage and tests
+    String[] initialStudents = {"x", "r", "q", "m", "v"};
+    Waitlist waitlist = new Waitlist(initialStudents, 7);
+
+    System.out.println("Initial waitlist: " + waitlist);
+
+    // Remove students "r" and "m"
+    Set<String> toRemove = Set.of("r", "m");
+    waitlist.removeStudents(toRemove);
+
+    System.out.println("Waitlist after removal: " + waitlist);
+  }
 }
+
+
