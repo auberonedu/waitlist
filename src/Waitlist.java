@@ -50,7 +50,31 @@ public class Waitlist {
     // Where n is studentIds.length
 
     // Don't forget to write tests too!
-  }
+
+    int writeIndex = 0;
+
+      // Traverse the studentIds array
+
+      for (int readIndex = 0; readIndex < studentIds.length; readIndex++) {
+
+        // Check if the current student ID is in the toRemove set
+         if (studentIds[readIndex] != null && !toRemove.contains(studentIds[readIndex])) {
+
+          // If not in the set, move it to the writeIndex positio
+          studentIds[writeIndex] = studentIds[readIndex];
+          writeIndex++;
+           }
+      }
+  
+      // Fill the remaining slots with null
+      while (writeIndex < studentIds.length) {
+
+        studentIds[writeIndex] = null;
+        writeIndex++;
+      }
+    }
+  
+  
 
   /**
    * Returns a copy of the waitlist.
@@ -61,10 +85,27 @@ public class Waitlist {
    */
   public String[] getWaitlist() {
     return Arrays.copyOf(studentIds, studentIds.length);
+
   }
 
   @Override
   public String toString() {
     return Arrays.toString(studentIds);
   }
+
+  public static void main(String[] args) {
+    // Example usage and tests
+    String[] initialStudents = {"x", "r", "q", "m", "v"};
+    Waitlist waitlist = new Waitlist(initialStudents, 7);
+
+    System.out.println("Initial waitlist: " + waitlist);
+
+    // Remove students "r" and "m"
+    Set<String> toRemove = Set.of("r", "m");
+    waitlist.removeStudents(toRemove);
+
+    System.out.println("Waitlist after removal: " + waitlist);
+  }
 }
+
+
