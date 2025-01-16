@@ -52,6 +52,28 @@ public class Waitlist {
     // Don't forget to write tests too!
 
     int writeIndex = 0;
+
+      // Traverse the studentIds array
+
+      for (int readIndex = 0; readIndex < studentIds.length; readIndex++) {
+
+        // Check if the current student ID is in the toRemove set
+         if (studentIds[readIndex] != null && !toRemove.contains(studentIds[readIndex])) {
+
+          // If not in the set, move it to the writeIndex positio
+          studentIds[writeIndex] = studentIds[readIndex];
+          writeIndex++;
+           }
+      }
+  
+      // Fill the remaining slots with null
+      while (writeIndex < studentIds.length) {
+        
+        studentIds[writeIndex] = null;
+        writeIndex++;
+      }
+    }
+  
   }
 
   /**
