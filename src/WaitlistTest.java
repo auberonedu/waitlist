@@ -64,4 +64,44 @@ public class WaitlistTest {
         assertArrayEquals(new String[]{null, null, null, null}, waitlist.getWaitlist());
     }
 
+
+      // Test behavior when the waitlist is empty
+      @Test
+      void testEmptyWaitlist() {
+          Waitlist waitlist = new Waitlist(new String[]{}, 3);
+          Set<String> toRemove = Set.of("a");
+          // Removing from an empty waitlist should not throw any errors
+          assertDoesNotThrow(() -> waitlist.removeStudents(toRemove));
+
+          // The waitlist should remain empty
+          assertArrayEquals(new String[]{null, null, null}, waitlist.getWaitlist());
+      }
+  
+      // Test passing a null set to removeStudents
+      @Test
+
+      void testRemoveFromNullSet() {
+          Waitlist waitlist = new Waitlist(new String[]{"a", "b", "c"}, 5);
+          // Removing with a null set should throw a NullPointerException
+          assertThrows(NullPointerException.class, () -> waitlist.removeStudents(null));
+      }
+  
+      // Test initializing a waitlist with a null array
+      @Test
+
+      void testWaitlistInitializedWithNullArray() {
+          // Initializing with a null array should throw a NullPointerException
+          assertThrows(NullPointerException.class, () -> new Waitlist(null, 5));
+      }
+  
+      // Test initializing a waitlist with capacity smaller than the number of students
+      @Test
+
+      void testWaitlistCapacityLessThanStudentCount() {
+          String[] students = {"x", "y", "z"};
+
+        // Should throw IllegalArgumentException when capacity is too small
+          assertThrows(IllegalArgumentException.class, () -> new Waitlist(students, 2));
+    }
 }
+
