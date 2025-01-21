@@ -34,6 +34,22 @@ public class Waitlist {
    * @param toRemove studentIds of the students to remove
    */
   public void removeStudents(Set<String> toRemove) {
+
+    int writeIndex = 0; 
+    
+   for (int i = 0; i < studentIds.length; i++) {
+    
+     if (studentIds[i] != null && !toRemove.contains(studentIds[i])) {
+       studentIds[writeIndex] = studentIds[i]; // Move the student to the front
+       writeIndex++; // Move the write index forward
+     }
+   }
+
+   while (writeIndex < studentIds.length) {
+     studentIds[writeIndex] = null;
+     writeIndex++;
+   }
+}
     // TODO: Implement this!
     // The remaining students should be slid down to the front of the array, not
     // leaving any gaps. All the nulls should be at the end.
@@ -50,7 +66,6 @@ public class Waitlist {
     // Where n is studentIds.length
 
     // Don't forget to write tests too!
-  }
 
   /**
    * Returns a copy of the waitlist.
@@ -59,7 +74,9 @@ public class Waitlist {
    * 
    * @return a copy of the current waitlist array, including `null` values for open slots
    */
-  public String[] getWaitlist() {
+
+  
+public String[] getWaitlist() {
     return Arrays.copyOf(studentIds, studentIds.length);
   }
 
