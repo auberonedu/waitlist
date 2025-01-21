@@ -25,7 +25,6 @@ public class WaitlistTest {
 
         waitlist.removeStudents(remove);
 
-        // After removal, the array should contain ["a", "c", "e", null, null]
         assertArrayEquals(new String[]{"x", "q", "v", null, null, null, null}, waitlist.getWaitlist());
     }
 
